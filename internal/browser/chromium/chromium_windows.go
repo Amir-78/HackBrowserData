@@ -7,10 +7,10 @@ import (
 
 	"github.com/tidwall/gjson"
 
-	"hack-browser-data/internal/decrypter"
-	"hack-browser-data/internal/item"
-	"hack-browser-data/internal/log"
-	"hack-browser-data/internal/utils/fileutil"
+	"github.com/moond4rk/hack-browser-data/pkg/decrypter"
+	"github.com/moond4rk/hack-browser-data/pkg/item"
+	"github.com/moond4rk/hack-browser-data/pkg/log"
+	"github.com/moond4rk/hack-browser-data/pkg/utils/fileutil"
 )
 
 var (

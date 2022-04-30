@@ -10,8 +10,8 @@ import (
 
 	"golang.org/x/crypto/pbkdf2"
 
-	"hack-browser-data/internal/item"
-	"hack-browser-data/internal/log"
+	"github.com/moond4rk/hack-browser-data/pkg/item"
+	"github.com/moond4rk/hack-browser-data/pkg/log"
 )
 
 var (

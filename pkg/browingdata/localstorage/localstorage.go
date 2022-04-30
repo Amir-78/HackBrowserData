@@ -9,9 +9,9 @@ import (
 
 	"github.com/syndtr/goleveldb/leveldb"
 
-	"hack-browser-data/internal/item"
-	"hack-browser-data/internal/log"
-	"hack-browser-data/internal/utils/typeutil"
+	"github.com/moond4rk/hack-browser-data/pkg/item"
+	"github.com/moond4rk/hack-browser-data/pkg/log"
+	"github.com/moond4rk/hack-browser-data/pkg/utils/typeutil"
 )
 
 type ChromiumLocalStorage []storage

@@ -5,12 +5,12 @@ import (
 	"path/filepath"
 	"strings"
 
-	"hack-browser-data/internal/browingdata"
-	"hack-browser-data/internal/browser/chromium"
-	"hack-browser-data/internal/browser/firefox"
-	"hack-browser-data/internal/log"
-	"hack-browser-data/internal/utils/fileutil"
-	"hack-browser-data/internal/utils/typeutil"
+	"github.com/moond4rk/hack-browser-data/internal/browser/chromium"
+	"github.com/moond4rk/hack-browser-data/internal/browser/firefox"
+	"github.com/moond4rk/hack-browser-data/pkg/browingdata"
+	"github.com/moond4rk/hack-browser-data/pkg/log"
+	"github.com/moond4rk/hack-browser-data/pkg/utils/fileutil"
+	"github.com/moond4rk/hack-browser-data/pkg/utils/typeutil"
 )
 
 type Browser interface {

@@ -3,17 +3,17 @@ package browingdata
 import (
 	"path"
 
-	"hack-browser-data/internal/browingdata/bookmark"
-	"hack-browser-data/internal/browingdata/cookie"
-	"hack-browser-data/internal/browingdata/creditcard"
-	"hack-browser-data/internal/browingdata/download"
-	"hack-browser-data/internal/browingdata/extension"
-	"hack-browser-data/internal/browingdata/history"
-	"hack-browser-data/internal/browingdata/localstorage"
-	"hack-browser-data/internal/browingdata/password"
-	"hack-browser-data/internal/item"
-	"hack-browser-data/internal/log"
-	"hack-browser-data/internal/utils/fileutil"
+	"github.com/moond4rk/hack-browser-data/pkg/browingdata/bookmark"
+	"github.com/moond4rk/hack-browser-data/pkg/browingdata/cookie"
+	"github.com/moond4rk/hack-browser-data/pkg/browingdata/creditcard"
+	"github.com/moond4rk/hack-browser-data/pkg/browingdata/download"
+	"github.com/moond4rk/hack-browser-data/pkg/browingdata/extension"
+	"github.com/moond4rk/hack-browser-data/pkg/browingdata/history"
+	"github.com/moond4rk/hack-browser-data/pkg/browingdata/localstorage"
+	"github.com/moond4rk/hack-browser-data/pkg/browingdata/password"
+	"github.com/moond4rk/hack-browser-data/pkg/item"
+	"github.com/moond4rk/hack-browser-data/pkg/log"
+	"github.com/moond4rk/hack-browser-data/pkg/utils/fileutil"
 )
 
 type Data struct {

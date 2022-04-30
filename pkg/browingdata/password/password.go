@@ -12,10 +12,10 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/tidwall/gjson"
 
-	"hack-browser-data/internal/decrypter"
-	"hack-browser-data/internal/item"
-	"hack-browser-data/internal/log"
-	"hack-browser-data/internal/utils/typeutil"
+	decrypter2 "github.com/moond4rk/hack-browser-data/pkg/decrypter"
+	"github.com/moond4rk/hack-browser-data/pkg/item"
+	"github.com/moond4rk/hack-browser-data/pkg/log"
+	"github.com/moond4rk/hack-browser-data/pkg/utils/typeutil"
 )
 
 type ChromiumPassword []loginData
@@ -63,9 +63,9 @@ func (c *ChromiumPassword) Parse(masterKey []byte) error {
 		if len(pwd) > 0 {
 			var err error
 			if masterKey == nil {
-				password, err = decrypter.DPApi(pwd)
+				password, err = decrypter2.DPApi(pwd)
 			} else {
-				password, err = decrypter.Chromium(masterKey, pwd)
+				password, err = decrypter2.Chromium(masterKey, pwd)
 			}
 			if err != nil {
 				log.Error(err)
@@ -127,9 +127,9 @@ func (c *YandexPassword) Parse(masterKey []byte) error {
 		if len(pwd) > 0 {
 			var err error
 			if masterKey == nil {
-				password, err = decrypter.DPApi(pwd)
+				password, err = decrypter2.DPApi(pwd)
 			} else {
-				password, err = decrypter.Chromium(masterKey, pwd)
+				password, err = decrypter2.Chromium(masterKey, pwd)
 			}
 			if err != nil {
 				log.Errorf("decrypt yandex password error %s", err)
@@ -166,7 +166,7 @@ func (f *FirefoxPassword) Parse(masterKey []byte) error {
 	if err != nil {
 		return err
 	}
-	metaPBE, err := decrypter.NewASN1PBE(metaBytes)
+	metaPBE, err := decrypter2.NewASN1PBE(metaBytes)
 	if err != nil {
 		return err
 	}
@@ -179,7 +179,7 @@ func (f *FirefoxPassword) Parse(masterKey []byte) error {
 	if bytes.Contains(k, []byte("password-check")) {
 		m := bytes.Compare(nssA102, keyLin)
 		if m == 0 {
-			nssPBE, err := decrypter.NewASN1PBE(nssA11)
+			nssPBE, err := decrypter2.NewASN1PBE(nssA11)
 			if err != nil {
 				return err
 			}
@@ -193,11 +193,11 @@ func (f *FirefoxPassword) Parse(masterKey []byte) error {
 				return err
 			}
 			for _, v := range allLogin {
-				userPBE, err := decrypter.NewASN1PBE(v.encryptUser)
+				userPBE, err := decrypter2.NewASN1PBE(v.encryptUser)
 				if err != nil {
 					return err
 				}
-				pwdPBE, err := decrypter.NewASN1PBE(v.encryptPass)
+				pwdPBE, err := decrypter2.NewASN1PBE(v.encryptPass)
 				if err != nil {
 					return err
 				}

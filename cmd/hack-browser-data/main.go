@@ -4,9 +4,9 @@ import (
 	"os"
 	"strings"
 
-	"hack-browser-data/internal/browser"
-	"hack-browser-data/internal/log"
-	"hack-browser-data/internal/utils/fileutil"
+	"github.com/moond4rk/hack-browser-data/internal/browser"
+	"github.com/moond4rk/hack-browser-data/pkg/log"
+	"github.com/moond4rk/hack-browser-data/pkg/utils/fileutil"
 
 	"github.com/urfave/cli/v2"
 )
@@ -26,7 +26,7 @@ func main() {
 
 func Execute() {
 	app := &cli.App{
-		Name:      "hack-browser-data",
+		Name:      "github.com/moond4rk/hack-browser-data",
 		Usage:     "Export passwords/cookies/history/bookmarks from browser",
 		UsageText: "[hack-browser-data -b chrome -f json -dir results -cc]\nExport all browingdata(password/cookie/history/bookmark) from browser\nGithub Link: https://github.com/moonD4rk/HackBrowserData",
 		Version:   "0.4.2",

@@ -3,7 +3,7 @@
 package browser
 
 import (
-	"hack-browser-data/internal/item"
+	"github.com/moond4rk/hack-browser-data/pkg/item"
 )
 
 var (
