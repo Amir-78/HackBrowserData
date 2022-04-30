@@ -179,6 +179,7 @@ Bookmarks
 Login Data
 Cookies
 History
+!/history
 *.db
 *.sqlite
 *.sqlite-shm

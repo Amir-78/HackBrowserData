@@ -10,7 +10,7 @@ import (
 	"github.com/moond4rk/hack-browser-data/pkg/utils/fileutil"
 )
 
-type ChromiumExtension []*extension
+type ChromiumExtension []extension
 
 type extension struct {
 	Name        string
@@ -36,7 +36,7 @@ func (c *ChromiumExtension) Parse(masterKey []byte) error {
 			continue
 		}
 		b := gjson.Parse(file)
-		*c = append(*c, &extension{
+		*c = append(*c, extension{
 			Name:        b.Get("name").String(),
 			Description: b.Get("description").String(),
 			Version:     b.Get("version").String(),
@@ -50,7 +50,7 @@ func (c *ChromiumExtension) Name() string {
 	return "extension"
 }
 
-type FirefoxExtension []*extension
+type FirefoxExtension []extension
 
 func (f *FirefoxExtension) Parse(masterKey []byte) error {
 	s, err := fileutil.ReadFile(item.TempFirefoxExtension)
@@ -60,7 +60,7 @@ func (f *FirefoxExtension) Parse(masterKey []byte) error {
 	defer os.Remove(item.TempFirefoxExtension)
 	j := gjson.Parse(s)
 	for _, v := range j.Get("addons").Array() {
-		*f = append(*f, &extension{
+		*f = append(*f, extension{
 			Name:        v.Get("defaultLocale.name").String(),
 			Description: v.Get("defaultLocale.description").String(),
 			Version:     v.Get("version").String(),
